@@ -5,7 +5,7 @@
   <title>IDEITAS PARA TI</title>
   <style>
     .barra-busqueda {
-      position: fixed; /* fija en la pantalla */
+      position: fixed;
       top: 20px;
       right: 20px;
       background-color: rgba(255, 255, 255, 0.9);
@@ -32,7 +32,7 @@
     h1 {
       font-size: 3em;
       color: #D630CF;
-      margin-top: 100px; /* para bajar el título */
+      margin-top: 100px;
       margin-bottom: 10px;
     }
 
@@ -61,7 +61,6 @@
       background-color: #b21fa7;
     }
 
-    /* Estilos barra búsqueda */
     .barra-busqueda input[type="text"] {
       padding: 10px;
       width: 250px;
@@ -110,11 +109,11 @@
       const query = document.getElementById("searchInput").value.toLowerCase();
 
       if (query.includes("peinado")) {
-        window.location.href = "HAIR.html";
+        window.location.href = "HAIR.HTML";
       } else if (query.includes("uña")) {
-        window.location.href = "NAIL.html";
+        window.location.href = "NAIL.HTML";
       } else if (query.includes("maquillaje")) {
-        window.location.href = "MAKEUP.html";
+        window.location.href = "MAKEUP.HTML";
       } else {
         alert("No se encontró la categoría. Prueba con 'peinados', 'uñas' o 'maquillaje'.");
       }
@@ -124,5 +123,3 @@
 </body>
 
 </html>
-
-

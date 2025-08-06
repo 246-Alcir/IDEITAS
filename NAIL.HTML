@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Diseños de Uñas 💅</title>
+  <style>
+    body {
+      background-color: #FFDAF2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      color: #D630CF;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .gallery img {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #D630CF;
+      color: white;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background-color: #b21fa7;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💅 HOLII!! ESCOGE TU MEJOR VERSIÓN!!</h1>
+  <p>*Haz click en la imagen para ver el paso a paso*</p>
+
+  <div class="gallery">
+    <img src="img/nail4.jpg" alt="Uñas 1" onclick="openModal('img/4.jpg')">
+    <img src="img/nail5.jpg" alt="Uñas 2" onclick="openModal('img/5.jpg')">
+    <img src="img/nail6.jpg" alt="Uñas 3" onclick="openModal('img/6.jpg')">
+  </div>
+
+  <a class="back-link" href="index.html">← Volver</a>
+
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <script>
+    function openModal(imageSrc) {
+      document.getElementById("myModal").style.display = "block";
+      document.getElementById("modal-img").src = imageSrc;
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("myModal");
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>

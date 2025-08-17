@@ -5,7 +5,7 @@
   <title>IDEITAS PARA TI</title>
   <style>
     .barra-busqueda {
-      position: fixed; /* fija en la pantalla */
+      position: fixed;
       top: 20px;
       right: 20px;
       background-color: rgba(255, 255, 255, 0.9);
@@ -32,7 +32,7 @@
     h1 {
       font-size: 3em;
       color: #D630CF;
-      margin-top: 100px; /* para bajar el título */
+      margin-top: 100px;
       margin-bottom: 10px;
     }
 
@@ -61,7 +61,6 @@
       background-color: #b21fa7;
     }
 
-    /* Estilos barra búsqueda */
     .barra-busqueda input[type="text"] {
       padding: 10px;
       width: 250px;
@@ -90,17 +89,19 @@
 
   <header>
     <h1>IDEITAS PARA TI.</h1>
-    <p>Ideas para tus peinados, uñas y maquillaje. ¡BUSCA TU MEJOR VERSIÓN!</p>
+    <p>¡BUSCA TU MEJOR VERSIÓN!</p>
   </header>
 
   <nav>
-    <a href="HAIR.HTML">Peinados</a>
-    <a href="NAIL.HTML">Uñas</a>
-    <a href="MAKEUP.HTML">Maquillaje</a>
+    <a href="HAIR.html">Peinados</a>
+    <a href="NAIL.html">Uñas</a>
+    <a href="MAKEUP.html">Maquillaje</a>
+    <a href="TATTOOS.html">Tatuajes</a>
+    <a href="STYLES.html">Barberia</a>
   </nav>
 
-  <form class="barra-busqueda" onsubmit="buscar(event)">
-    <input type="text" id="searchInput" placeholder="Buscar... (ej: peinados)" />
+<form class="barra-busqueda" onsubmit="buscar(event)">
+    <input type="text" id="searchInput" placeholder="Buscar... (ej:Peinados,)" />
     <button type="submit">Buscar</button>
   </form>
 
@@ -110,13 +111,17 @@
       const query = document.getElementById("searchInput").value.toLowerCase();
 
       if (query.includes("peinado")) {
-        window.location.href = "HAIR.html";
+          window.location.href = "HAIR.html";
       } else if (query.includes("uña")) {
-        window.location.href = "NAIL.html";
+          window.location.href = "NAIL.html";
       } else if (query.includes("maquillaje")) {
-        window.location.href = "MAKEUP.html";
+          window.location.href = "MAKEUP.html";
+      } else if (query.includes("tatuaje")) {
+          window.location.href = "TATTOOS.html";
+      } else if ( query.includes("barberia")) {
+          window.location.href = "STYLES.HTML"; 
       } else {
-        alert("No se encontró la categoría. Prueba con 'peinados', 'uñas' o 'maquillaje'.");
+          alert("No se encontró la categoría. Prueba con 'peinados', 'uñas', 'maquillaje', 'tatuajes' ,'barberia'.");
       }
     }
   </script>

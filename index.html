@@ -5,42 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IDEITAS PARA TI</title>
   <style>
-    .barra-busqueda {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 10px 15px;
-      border-radius: 20px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      z-index: 1000;
-    }
-
     body {
       background-image: url('img/10.jpg');
       background-size: cover;        
       background-position: center;   
       background-repeat: no-repeat;  
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       font-family: Arial, sans-serif;
-      color: #4A004E;
+      color: #fff;
       margin: 0;
       padding: 0;
       text-align: center;
     }
 
+    header {
+      background-color: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
     h1 {
       font-size: 3em;
-      color: #D630CF;
-      margin-top: 100px;
-      margin-bottom: 10px;
+      color: #FFD2FF;
+      margin: 0;
     }
 
     p {
-      font-size: 1.2em;
+      font-size: 1.4em;
       margin-top: 10px;
+      color: #fff;
     }
 
     nav {
@@ -49,7 +46,7 @@
 
     nav a {
       display: inline-block;
-      margin: 10px 20px;
+      margin: 10px 15px;
       padding: 12px 25px;
       background-color: #D630CF;
       color: white;
@@ -63,9 +60,22 @@
       background-color: #b21fa7;
     }
 
+    .barra-busqueda {
+      margin-top: 25px;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 12px 15px;
+      border-radius: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      max-width: 400px;
+    }
+
     .barra-busqueda input[type="text"] {
       padding: 10px;
-      width: 250px;
+      flex: 1;
       border: none;
       border-radius: 20px;
       font-size: 1em;
@@ -85,36 +95,29 @@
     .barra-busqueda button:hover {
       background-color: #b21fa7;
     }
-    
+
     @media (max-width: 768px) {
       h1 {
         font-size: 2.2em;
-        margin-top: 60px;
       }
 
       p {
-        font-size: 1.3em;
+        font-size: 1.1em;
       }
 
       nav a {
         display: block;
         margin: 12px auto;
         width: 80%;
-        font-size: 1.2em;
+        font-size: 1.1em;
       }
 
       .barra-busqueda {
-        top: 10px;
-        right: 10px;
         flex-direction: column;
         width: 90%;
       }
 
-      .barra-busqueda input[type="text"] {
-        width: 100%;
-        font-size: 1.1em;
-      }
-
+      .barra-busqueda input,
       .barra-busqueda button {
         width: 100%;
         font-size: 1.1em;
@@ -129,6 +132,11 @@
     <p>¡BUSCA TU MEJOR VERSIÓN!</p>
   </header>
 
+  <form class="barra-busqueda" onsubmit="buscar(event)">
+    <input type="text" id="searchInput" placeholder="Buscar... (ej: Peinados)" />
+    <button type="submit">Buscar</button>
+  </form>
+
   <nav>
     <a href="hair.html">Peinados</a>
     <a href="nail.html">Uñas</a>
@@ -136,11 +144,6 @@
     <a href="tattoos.html">Tatuajes</a>
     <a href="styles.html">Barbería</a>
   </nav>
-
-  <form class="barra-busqueda" onsubmit="buscar(event)">
-    <input type="text" id="searchInput" placeholder="Buscar... (ej: Peinados)" />
-    <button type="submit">Buscar</button>
-  </form>
 
   <script>
     function buscar(event) {
@@ -165,4 +168,3 @@
 
 </body>
 </html>
-

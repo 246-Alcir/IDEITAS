@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <!-- 👇 Esto es clave para que el diseño responda bien en celulares -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IDEITAS PARA TI</title>
   <style>
     .barra-busqueda {
@@ -85,6 +87,7 @@
       background-color: #b21fa7;
     }
 
+    /* 📱 Ajustes para celulares */
     @media (max-width: 768px) {
       h1 {
         font-size: 2.2em;
@@ -148,16 +151,16 @@
 
       if (query.includes("peinado")) {
           window.location.href = "hair.html";
-      } else if (query.includes("uña")) {
+      } else if (query.includes("una") || query.includes("uña")) {
           window.location.href = "nail.html";
       } else if (query.includes("maquillaje")) {
           window.location.href = "makeup.html";
       } else if (query.includes("tatuaje")) {
           window.location.href = "tattoos.html";
-      } else if ( query.includes("barberia")) {
+      } else if (query.includes("barberia")) {
           window.location.href = "styles.html"; 
       } else {
-          alert("No se encontró la categoría. Prueba con 'peinados', 'uñas', 'maquillaje', 'tatuajes' ,'barberia'.");
+          alert("No se encontró la categoría. Prueba con 'peinados', 'uñas', 'maquillaje', 'tatuajes' o 'barbería'.");
       }
     }
   </script>

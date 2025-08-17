@@ -72,12 +72,40 @@
       background-color: rgba(0,0,0,0.8);
     }
 
-    .modal-content {
-      margin: auto;
-      display: block;
+    .modal-body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
       max-width: 90%;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .modal-content {
+      max-width: 50%;
       max-height: 80vh;
       border-radius: 10px;
+    }
+
+    .modal-text {
+      color: white;
+      font-size: 1.1em;
+      max-width: 40%;
+      text-shadow: 1px 1px 3px #000;
+      text-align: left;
+    }
+
+    .modal-title {
+      color: #D630CF;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .modal-text ul {
+      list-style: disc;
+      padding-left: 20px;
     }
 
     .close {
@@ -101,22 +129,32 @@
   <p>*Haz click en la imagen para ver el paso a paso*</p>
 
   <div class="gallery">
-    <img src="img/makeup7.jpg" alt="Maquillaje 1" onclick="openModal('img/7.jpg')">
-    <img src="img/makeup8.jpg" alt="Maquillaje 2" onclick="openModal('img/8.jpg')">
-    <img src="img/makeup9.jpg" alt="Maquillaje 3" onclick="openModal('img/9.jpg')">
+    <img src="img/makeup7.jpg" alt="Maquillaje 1" 
+         onclick="openModal('img/7.jpg', '<ul><li>Base</li><li>Polvo compacto</li><li>Corrector de ojeras</li><li>Polvo suelto</li><li>Lapiz para cejas</li><li>Sombras</li><li>Glitter</li><li>Delineado</li><li>Pestañas postizas</li></ul>')"> 
+
+    <img src="img/makeup8.jpg" alt="Maquillaje 2" 
+         onclick="openModal('img/8.jpg', '<ul><li>Base</li><li>Polvo compacto</li><li>Corrector de ojeras</li><li>Polvo suelto</li><li>Lapiz para cejas</li><li>Sombras</li><li>Glitter</li><li>Delineado</li><li>Pestañas postizas</li></ul>')">
+
+    <img src="img/makeup9.jpg" alt="Maquillaje 3" 
+         onclick="openModal('img/9.jpg', '<ul><li>Base</li><li>Polvo compacto</li><li>Corrector de ojeras</li><li>Polvo suelto</li><li>Lapiz para cejas</li><li>Sombras</li><li>Glitter</li><li>Delineado</li><li>Pestañas postizas</li></ul>')">
   </div>
 
   <a class="back-link" href="index.html">← Volver</a>
 
   <div id="myModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modal-img">
+    <div class="modal-body">
+      <img class="modal-content" id="modal-img">
+      <div class="modal-text" id="modal-text"></div>
+    </div>
   </div>
 
   <script>
-    function openModal(imageSrc) {
+    function openModal(imageSrc, text) {
       document.getElementById("myModal").style.display = "block";
       document.getElementById("modal-img").src = imageSrc;
+      document.getElementById("modal-text").innerHTML =
+        "<h3 class='modal-title'>MATERIALES</h3>" + text;
     }
 
     function closeModal() {

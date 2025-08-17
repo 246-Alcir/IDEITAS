@@ -60,7 +60,6 @@
       background-color: #b21fa7;
     }
 
-    /* Modal (ventana emergente) */
     .modal {
       display: none;
       position: fixed;
@@ -74,12 +73,37 @@
       background-color: rgba(0,0,0,0.8);
     }
 
-    .modal-content {
-      margin: auto;
-      display: block;
+    .modal-body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
       max-width: 90%;
+      margin: auto;
+      flex-wrap: wrap;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .modal-content {
+      max-width: 500px;
       max-height: 80vh;
       border-radius: 10px;
+    }
+
+    .modal-description {
+      text-align: left;
+    }
+
+    .modal-description h2 {
+      color: #D630CF;
+    }
+
+    .modal-description ul {
+      color: white;
+      font-weight: bold;
+      font-size: 1.3em;
+       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
 
     .close {
@@ -103,30 +127,40 @@
   <p>*Haz click en la imagen para ver el paso a paso*</p>
 
   <div class="gallery">
-    <img src="img/peinado1.jpg" alt="1" onclick="openModal('img/1.jpg')">
-    <img src="img/peinado2.jpg" alt="2" onclick="openModal('img/2.jpg')">
-    <img src="img/peinado3.jpg" alt="3" onclick="openModal('img/3.jpg')">
+    <img src="img/peinado1.jpg" alt="1" onclick="openModal('img/1.jpg', ['Peine', 'Ligas', 'Laca', 'Horquillas', 'Dona'])">
+    <img src="img/peinado2.jpg" alt="2" onclick="openModal('img/2.jpg', ['Rizador', 'Evillas', 'Ligas', 'Peine', 'Pasadores'])">
+    <img src="img/peinado3.jpg" alt="3" onclick="openModal('img/3.jpg', ['Horquillas', 'Ligas', 'Peine', 'Spray fijador'])">
   </div>
 
   <a class="back-link" href="index.html">← Volver</a>
 
-  <!-- Modal -->
   <div id="myModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modal-img">
+    <div class="modal-body">
+      <img class="modal-content" id="modal-img">
+      <div class="modal-description">
+        <h2>MATERIALES</h2>
+        <ul id="material-list"></ul>
+      </div>
+    </div>
   </div>
 
   <script>
-    function openModal(imageSrc) {
+    function openModal(imageSrc, materials) {
       document.getElementById("myModal").style.display = "block";
       document.getElementById("modal-img").src = imageSrc;
+
+      let listHTML = "";
+      materials.forEach(item => {
+        listHTML += `<li>${item}</li>`;
+      });
+      document.getElementById("material-list").innerHTML = listHTML;
     }
 
     function closeModal() {
       document.getElementById("myModal").style.display = "none";
     }
 
-    // También cerrar al hacer clic fuera de la imagen
     window.onclick = function(event) {
       const modal = document.getElementById("myModal");
       if (event.target == modal) {

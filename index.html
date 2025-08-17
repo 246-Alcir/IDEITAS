@@ -20,15 +20,14 @@
 
     body {
       background-image: url('img/10.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  font-family: Arial, sans-serif;
-  color: #4A004E;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+      background-size: cover;        
+      background-position: center;   
+      background-repeat: no-repeat;  
+      font-family: Arial, sans-serif;
+      color: #4A004E;
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
 
     h1 {
@@ -85,6 +84,41 @@
     .barra-busqueda button:hover {
       background-color: #b21fa7;
     }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+        margin-top: 60px;
+      }
+
+      p {
+        font-size: 1.3em;
+      }
+
+      nav a {
+        display: block;
+        margin: 12px auto;
+        width: 80%;
+        font-size: 1.2em;
+      }
+
+      .barra-busqueda {
+        top: 10px;
+        right: 10px;
+        flex-direction: column;
+        width: 90%;
+      }
+
+      .barra-busqueda input[type="text"] {
+        width: 100%;
+        font-size: 1.1em;
+      }
+
+      .barra-busqueda button {
+        width: 100%;
+        font-size: 1.1em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -99,11 +133,11 @@
     <a href="nail.html">Uñas</a>
     <a href="makeup.html">Maquillaje</a>
     <a href="tattoos.html">Tatuajes</a>
-    <a href="styles.html">Barberia</a>
+    <a href="styles.html">Barbería</a>
   </nav>
 
-<form class="barra-busqueda" onsubmit="buscar(event)">
-    <input type="text" id="searchInput" placeholder="Buscar... (ej:Peinados,)" />
+  <form class="barra-busqueda" onsubmit="buscar(event)">
+    <input type="text" id="searchInput" placeholder="Buscar... (ej: Peinados)" />
     <button type="submit">Buscar</button>
   </form>
 
@@ -129,12 +163,4 @@
   </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-

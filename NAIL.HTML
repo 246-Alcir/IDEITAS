@@ -72,12 +72,39 @@
       background-color: rgba(0,0,0,0.8);
     }
 
-    .modal-content {
-      margin: auto;
-      display: block;
+    .modal-body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
       max-width: 90%;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .modal-content {
+      max-width: 50%;
       max-height: 80vh;
       border-radius: 10px;
+    }
+
+    .modal-text {
+      color: white;
+      font-size: 1.1em;
+      max-width: 40%;
+      text-shadow: 1px 1px 3px #000;
+      text-align: left;
+    }
+
+    .modal-title {
+      color: #D630CF;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .modal-text ul {
+      list-style: disc;
+      padding-left: 20px;
     }
 
     .close {
@@ -101,22 +128,32 @@
   <p>*Haz click en la imagen para ver el paso a paso*</p>
 
   <div class="gallery">
-    <img src="img/nail4.jpg" alt="Uñas 1" onclick="openModal('img/4.jpg')">
-    <img src="img/nail5.jpg" alt="Uñas 2" onclick="openModal('img/5.jpg')">
-    <img src="img/nail6.jpg" alt="Uñas 3" onclick="openModal('img/6.jpg')">
+    <img src="img/nail4.jpg" alt="Uñas 1" 
+         onclick="openModal('img/4.jpg', '<ul><li>Primer</li><li>Esmalte base</li><li>Esmalte color novia</li><li>Pincel fino</li><li>Acrilico</li><li>Monomero</li><li>Piedras decorativas</li><li>Brillo protector</li></ul>')">
+
+    <img src="img/nail5.jpg" alt="Uñas 2" 
+         onclick="openModal('img/5.jpg', '<ul><li>Primer</li><li>Esmalte base</li><li>Esmalte rosa</li><li>Esmalte blanco</li><li>Pincel fino</li><li>Puntero</li><li>Brillo protector</li></ul>')">
+
+    <img src="img/nail6.jpg" alt="Uñas 3" 
+         onclick="openModal('img/6.jpg', '<ul><li>Primer</li><li>Esmalte rojo</li><li>Esmalte color novia</li><li>Esmalte blanco</li><li>Pincel fino</li><li>Brillo protector</li></ul>')">
   </div>
 
   <a class="back-link" href="index.html">← Volver</a>
 
   <div id="myModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modal-img">
+    <div class="modal-body">
+      <img class="modal-content" id="modal-img">
+      <div class="modal-text" id="modal-text"></div>
+    </div>
   </div>
 
   <script>
-    function openModal(imageSrc) {
+    function openModal(imageSrc, materials) {
       document.getElementById("myModal").style.display = "block";
       document.getElementById("modal-img").src = imageSrc;
+      document.getElementById("modal-text").innerHTML =
+        "<h3 class='modal-title'>MATERIALES</h3>" + materials;
     }
 
     function closeModal() {
